@@ -62,8 +62,8 @@ def easom(pts: np.ndarray) -> np.ndarray:
     - global minimum = f(pi, pi) = -1
     - local minima: yes
     """
-    x: np.ndarray = pts[:, 0]
-    y: np.ndarray = pts[:, 1]
+    x: np.ndarray = pts[:, 0] + np.pi
+    y: np.ndarray = pts[:, 1] + np.pi
     return -np.cos(x)*np.cos(y)*np.exp(-np.power((x-np.pi), 2) - np.power((y - np.pi), 2))
 
 def griewank(pts: np.ndarray) -> np.ndarray:
@@ -106,6 +106,41 @@ class Landscape:
         
         return self.func(pts)
     
+
+basic_landscapes = [
+    Landscape('circle', circle, np.array([[0, 0]])),
+    Landscape('rastrigin', rastrigin, np.array([[0, 0]])),
+    Landscape('schaffer', schaffer, np.array([[0, 0]])),
+    Landscape('rosenbrock', rosenbrock, np.array([[0, 0]])),
+    Landscape('easom', easom, np.array([[0, 0]])),
+    Landscape('griewank', griewank, np.array([[0, 0]]))
+]
+
+landscapes_dict = {
+    'circle': circle,
+    'rastrigin': rastrigin,
+    'schaffer': schaffer,
+    'rosenbrock': rosenbrock,
+    'easom': easom,
+    'griewank': griewank,
+}
+
+landscapes_names = [
+    'circle',
+    'rastrigin',
+    'schaffer',
+    'rosenbrock',
+    'easom',
+    'griewank',
+]
+
+CIRCLE = Landscape('circle', circle)
+RASTRIGIN = Landscape('rastrigin', rastrigin)
+SCHAFFER = Landscape('schaffer', schaffer)
+ROSENBROCK = Landscape('rosenbrock', rosenbrock)
+EASOM = Landscape('easom', easom)
+GRIEWANK = Landscape('griewank', griewank)
+
 
 # OLD VERSION
 
