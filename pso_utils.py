@@ -135,8 +135,9 @@ class Swarm:
 
 
 
-def original_update(n, swarm, velocity, global_best, personal_best, center_mass, dispersion, soc_factor=0.5015298256056491, cog_factor=2.302762690261078, inertia_weight=0.16394384037124668):
+def original_update(swarm, velocity, global_best, personal_best, center_mass, dispersion, soc_factor=0.5015298256056491, cog_factor=2.302762690261078, inertia_weight=0.16394384037124668):
 
+    n = 50
     # stochastic elements
     r1 = np.random.uniform(np.zeros(2), np.ones(2), size=(n, 2))
     r2 = np.random.uniform(np.zeros(2), np.ones(2), size=(n, 2))
@@ -232,7 +233,8 @@ class SwarmGP:
     def generate(self, cycles=1):
 
         for _ in range(cycles):
-            self.velocity = self.vel_update(self.n, self.swarm, self.velocity, self.global_best, self.personal_best, self.center_mass, self.dispersion)
+            self.velocity = self.vel_update(self.swarm, self.velocity, self.global_best, self.personal_best, self.center_mass, self.dispersion)
+            # print(f'output of velocity = {self.velocity}')
             self.check_velocity()
             self.update_position()
 
