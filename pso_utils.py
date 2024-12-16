@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 from collections.abc import Callable
-from landscapes import *
+from landscapes_utils import *
 
 
 def compute_magnitude(pts):
