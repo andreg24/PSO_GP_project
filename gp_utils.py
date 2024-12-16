@@ -88,3 +88,30 @@ def plot_log(log, ax1=None):
     return fig, (ax1, ax2)
 
 
+def clean_rand(expr):
+    index_open = None
+    
+    for i in range(len(expr) - 8):
+        if expr[i:i + 8] == 'gen_rand' and expr[i:i + 11] != 'gen_rand(0)':
+            index_open = i
+            break
+    if index_open is None:
+        return expr
+    
+    if index_open is not None:
+
+        counter = 1
+        for j in range(index_open + 9, len(expr)):
+            if expr[j] == '(':
+                counter += 1
+            elif expr[j] == ')':
+                counter -= 1
+            
+            if counter == 0:
+                
+                expr = expr[:index_open + 9] + '0' + expr[j:]
+                break
+        return clean_rand(expr)
+
+    return expr
+

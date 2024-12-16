@@ -140,31 +140,3 @@ SCHAFFER = Landscape('schaffer', schaffer)
 ROSENBROCK = Landscape('rosenbrock', rosenbrock)
 EASOM = Landscape('easom', easom)
 GRIEWANK = Landscape('griewank', griewank)
-
-
-# OLD VERSION
-
-# # fitness function modifier
-
-# def fitness_decorator(fit, var_translation, var_scale=1, amplitude=1, intercept=0):
-#     """var_translation and var_scale have (2,) shape"""
-#     def modified_fit(solutions):
-#         solutions = solutions - var_translation
-#         solutions = solutions * var_scale
-
-#         return amplitude * fit(solutions) + intercept
-    
-#     return modified_fit
-
-# # landscape and fitness functions
-
-# class Landscape:
-
-#     def __init__(self, name, func, minima):
-#         self.name = name
-#         self.func = func
-#         self.minima = minima
-    
-#     def modify_minima(self, new_minima):
-#         self.func = fitness_decorator(self.func, new_minima[0] - self.minima[0])
-#         self.minima = new_minima
