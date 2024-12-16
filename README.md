@@ -5,7 +5,7 @@ Structure
 
 ```
 .
-├── FINAL.ipynb -> FILE DI RIFERIMENTO CON I RISULTATI FINALI
+├── PROJECT.ipynb -> FILE DI RIFERIMENTO CON I RISULTATI FINALI
 ├── pso_utils.py -> python file contente la classe che gestisce la PSO
 ├── gp_utils.py -> file in cui sono contenute funzioni di appoggio per la GP run
 ├── landscapes_utils.py -> file che contiene le funzioni utilizzate per creare il benchmark
