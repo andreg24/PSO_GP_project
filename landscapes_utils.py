@@ -25,15 +25,15 @@ def rastrigin(pts: np.ndarray) -> np.ndarray:
     y: np.ndarray = pts[:, 1]
     return A*2 + (np.power(pts, 2) - A*np.cos(pts * 2 * np.pi)).sum(axis=1)
 
-def eggholder(pts: np.ndarray) -> np.ndarray:
-    """
-    Info:
-    - global minimum = f(0, 0) = 0
-    - local minima: no
-    """
-    x: np.ndarray = pts[:, 0]
-    y: np.ndarray = pts[:, 1]
-    return - (y + 47)* np.sin(np.sqrt(np.abs(x* 0.5 + (y + 47)))) - x * np.sin(np.sqrt(np.abs(x - (y + 47))))
+# def eggholder(pts: np.ndarray) -> np.ndarray:
+#     """
+#     Info:
+#     - global minimum = f(0, 0) = 0
+#     - local minima: no
+#     """
+#     x: np.ndarray = pts[:, 0]
+#     y: np.ndarray = pts[:, 1]
+#     return - (y + 47)* np.sin(np.sqrt(np.abs(x* 0.5 + (y + 47)))) - x * np.sin(np.sqrt(np.abs(x - (y + 47))))
 
 def schaffer(pts: np.ndarray) -> np.ndarray:
     x: np.ndarray = pts[:, 0]
